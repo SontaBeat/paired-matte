@@ -1,6 +1,6 @@
 {
   "name": "paired-matte",
-  "version": "0.1.0-draft",
+  "version": "0.1.0",
   "private": true,
   "description": "配对纯色图与灰度遮罩的半透明抠图工作流",
   "license": "GPL-3.0-or-later",

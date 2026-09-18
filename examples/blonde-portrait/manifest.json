@@ -7,7 +7,7 @@
   "background": "#808080",
   "historical_generation_route": "web",
   "provenance": "Author-provided images processed on 2026-09-17; no ground-truth alpha or verified camera provenance.",
-  "cutout_provenance": "Existing Safari export from the local draft web tool, copied without pixel changes; see settings.json.",
+  "cutout_provenance": "Existing Safari export from the local web tool, copied without pixel changes; see settings.json.",
   "web_end_to_end_rerun": true,
   "artwork_license": "Author-created demonstration assets; excluded from code GPL; see ../ASSETS.md.",
   "sha256": {

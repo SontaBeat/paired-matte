@@ -40,7 +40,7 @@ manifest = {
     'id': args.id, 'size': {'width': size[0], 'height': size[1]},
     'background': '#808080', 'historical_generation_route': args.route,
     'provenance': 'Author-provided historical AI artwork and accepted paired outputs; no ground-truth alpha.',
-    'cutout_provenance': 'Re-exported with the draft web tool; see settings.json.',
+    'cutout_provenance': 'Re-exported with the web tool; see settings.json.',
     'web_end_to_end_rerun': args.route == 'web', 'artwork_license': 'Author-created demonstration assets; excluded from code GPL; see ../ASSETS.md.',
     'sha256': files,
 }
@@ -48,7 +48,7 @@ if args.route == 'web':
     manifest.update({
         'generation_route': 'ChatGPT website in Safari: source to solid, re-upload solid to generate mask.',
         'provenance': 'Author-provided images processed on 2026-09-17; no ground-truth alpha or verified camera provenance.',
-        'cutout_provenance': 'Existing Safari export from the local draft web tool, copied without pixel changes; see settings.json.',
+        'cutout_provenance': 'Existing Safari export from the local web tool, copied without pixel changes; see settings.json.',
         'validation': 'Raw-solid contour overlay and black/white composites inspected; no obvious global shift. Not a pixel-perfect or true-alpha guarantee.',
         'export_alpha_max_difference_255': 2,
     })

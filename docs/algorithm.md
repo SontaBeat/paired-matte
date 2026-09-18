@@ -10,7 +10,7 @@ Alpha 与背景色都来自实际输入，并不天然准确。α 越小，除�
 
 ## 现有网页实际做了什么
 
-源码见 [app.js](../src/app.js)，历史完整实现见 [legacy/cutout-tool.html](../legacy/cutout-tool.html)。
+源码见 [app.js](../src/app.js)。
 
 1. 读取 Canvas 像素，从灰度遮罩估计 Alpha。非中性遮罩使用亮度与最大通道的组合，是历史容错处理；推荐输入真正的单通道中性灰度图。
 2. 按黑场/白场设置压缩 Alpha 端点。通用预设不裁端点。

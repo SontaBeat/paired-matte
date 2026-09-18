@@ -7,7 +7,7 @@
   "background": "#808080",
   "historical_generation_route": "web-solid-builtin-mask",
   "provenance": "Author-provided historical AI artwork and accepted paired outputs; no ground-truth alpha.",
-  "cutout_provenance": "Re-exported with the draft web tool; see settings.json.",
+  "cutout_provenance": "Re-exported with the web tool; see settings.json.",
   "web_end_to_end_rerun": false,
   "artwork_license": "Author-created demonstration assets; excluded from code GPL; see ../ASSETS.md.",
   "sha256": {
