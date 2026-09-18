@@ -1,0 +1,9 @@
+{
+  "preset": "general",
+  "background": "#808080",
+  "trim": 0,
+  "opaque": 1,
+  "unmix": 0.9,
+  "edgeClean": 0,
+  "cloth": 0
+}

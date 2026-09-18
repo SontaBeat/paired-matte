@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>完整演示 · 从原图到透明 PNG</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f3f5f2;color:#20332f;font:16px/1.8 system-ui,sans-serif}main{max-width:1200px;margin:auto;padding:32px 24px 80px}header,section{background:white;border:1px solid #dce5df;border-radius:16px;padding:28px;margin-bottom:24px}h1{font-size:clamp(28px,4vw,44px);line-height:1.25}h2{font-size:25px}a{color:#076b65}nav,.actions{display:flex;gap:12px;flex-wrap:wrap}nav a,.button,button{padding:9px 16px;border:1px solid #dce5df;border-radius:8px;background:#f4f8f5;color:#076b65;text-decoration:none;font:inherit;cursor:pointer}.badge{font-size:13px;color:#076b65;letter-spacing:2px}.hint{padding:16px;border-left:4px solid #d5a33b;background:#fff8e8}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}figure{margin:0;min-width:0}figure img{width:100%;height:330px;object-fit:contain;background:#ecefeb;border-radius:8px}figcaption{font-size:14px;margin-top:8px}.pair{display:grid;grid-template-columns:1fr 1fr;gap:22px}textarea{width:100%;min-height:235px;resize:vertical;padding:16px;border:1px solid #dce5df;border-radius:8px;font:14px/1.75 system-ui;background:#f8faf8;color:#20332f}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#edf3ef;padding:18px;font:13px/1.8 monospace}table{border-collapse:collapse;width:100%;font-size:14px}td,th{padding:10px;text-align:left;border-bottom:1px solid #dce5df}iframe{width:100%;height:900px;border:1px solid #dce5df;border-radius:12px;background:white}.muted{color:#62716a;font-size:14px}li{margin:8px 0}section{scroll-margin-top:20px}@media(max-width:700px){main{padding:16px 12px}header,section{padding:20px}.grid,.pair{grid-template-columns:1fr}figure img{height:310px}iframe{height:760px}}
+</style></head><body><main>
+<header><span class="badge">PAIRED MATTE / 完整操作演示 / 私有审阅稿</span><h1>从一张原图，<br>到保留半透明材质的 PNG。</h1><p>以「珍珠白纱物」走完准备、生成、验收与导出六步，再对照人物案例理解发丝与不透明主体的区别。</p><p class="hint">这是可操作的分步教程，不是录屏。示例来自已经完成的网页流程，下方嵌入的是真实离线工具。无需重新生图，就能用现成配对素材试做后半程。</p><nav><a href="#prepare">01 准备</a><a href="#solid">02 灰底图</a><a href="#mask">03 遮罩图</a><a href="#align">04 验收</a><a href="#tool">05 网页操作</a><a href="#export">06 导出检查</a></nav><p><a href="review.html">← 返回五组演示</a> · <a href="cutout-tool.html" target="_blank" rel="noopener">单独打开工具 ↗</a></p></header>
+
+<section id="prepare"><span class="badge">01 / 准备</span><h2>什么要留下，什么要去掉？</h2><p>本例只保留纱物，去掉木台与背景，也去掉透过纱看到的木纹。保持 <strong>973 × 1616</strong> 画布和原有裁切。人物案例则保留人物、头发、衣物、项链与包。</p>
+<div class="grid"><figure><img src="examples/pearl-gauze/source.png" alt="木台上的原始纱物"><figcaption>输入：原图。保留备份，不覆盖。</figcaption></figure><figure><img src="examples/pearl-gauze/solid.png" alt="纱物灰底图"><figcaption>图 A：彩色主体 + #808080 纯色底。</figcaption></figure><figure><img src="examples/pearl-gauze/alpha.png" alt="纱物灰度遮罩"><figcaption>图 B：黑底灰度 Alpha，不是简单转黑白。</figcaption></figure></div>
+<p class="actions"><a class="button" href="examples/pearl-gauze/source.png" download="source.png">保存演示原图</a><a class="button" href="examples/pearl-gauze/solid.png" download="solid.png">保存已完成灰底图</a><a class="button" href="examples/pearl-gauze/alpha.png" download="alpha.png">保存已完成遮罩图</a></p><p class="muted">若浏览器只打开图片，请使用“图片另存为”。跟做网页部分可直接保存后两张，跳到第 5 步；第 4 步是制作新配对图时必须做的检查。</p>
+<ol><li>准备自己的 ChatGPT 账号及可用生图额度；此阶段会上传图片到 ChatGPT，先确认可上传。</li><li>新建会话上传一张原图，逐张串行处理；下一张再开新会话。</li><li>为每张图建独立目录，区分生成原件与验收后成品，避免混用。</li></ol>
+<pre>source.png             原图
+solid-raw.png          下载的灰底原件
+alpha-raw.png          下载的遮罩原件
+alpha.png              单通道遮罩
+alignment-overlay.png  轮廓检查图
+solid.png              验收后纯色图
+cutout.png             网页导出的透明图</pre></section>
+
+<section id="solid"><span class="badge">02 / 图 A</span><h2>先生成灰底彩色图</h2><p>上传 source.png，发送下面的提示词。生成后下载实际图片为 <strong>solid-raw.png</strong>，不要用聊天截图代替。下面提示词按本次案例整理；换图时修改主体范围和尺寸。</p>
+<textarea id="solidPrompt" readonly aria-label="灰底图提示词">请直接编辑附件原图，生成一张灰底彩色 PNG。只保留整片珍珠白半透明纱物的褶皱、细丝、边缘和叠层，移除木台及全部环境，包括透过纱看到的木纹与木台颜色。背景替换为均匀纯色 #808080（RGB 128,128,128），无渐变、地面或投影。半透明区域自然透出新的灰色底，不保留原黑底或木纹。严格保持原图 973×1616 画布、纱物轮廓、位置、比例与边界裁切；不旋转、不移动、不重设计褶皱、不补全画外部分。保留珍珠光泽与透光层次，不要变成不透明白布。仅输出一张完整图片，不拼接、不加文字边框。</textarea><button type="button" data-copy="solidPrompt">复制灰底提示词</button>
+<p>检查残余木台、褶皱、位置与裁切，有明显变化先纠正灰底。看起来均匀，不代表背景像素已经精确为 #808080。</p></section>
+
+<section id="mask"><span class="badge">03 / 图 B</span><h2>重新上传灰底图，再生成遮罩</h2><p>在同一会话<strong>重新上传刚下载的 solid-raw.png</strong>，作为唯一几何参考。不要回到原图独立生成遮罩，也不要让两种结果拼在一张图里。</p>
+<textarea id="maskPrompt" readonly aria-label="遮罩提示词">只根据本条上传的 solid-raw.png 生成与它位置对应的灰度 Alpha 遮罩 PNG，不再参考有木台的原图。保持 973×1616 画布及所有轮廓、细丝、褶皱、叠层和裁切完全一致；不移动、不缩放、不旋转、不重绘构图。背景纯黑 #000000。纱的薄区域用表示不透明度的连续灰度，丝线和高密度叠层更亮，孔洞黑色，只有真正不透明区域才纯白 #FFFFFF。不要把整片纱填白；灰度不是照片明暗或阴影。不得包含木台，不添加内容，只输出一张全幅灰度遮罩，不要文字、拼图或边框。</textarea><button type="button" data-copy="maskPrompt">复制遮罩提示词</button>
+<p>下载为 <strong>alpha-raw.png</strong>。黑 = 透明，白 = 不透明，灰 = 半透明。“保持一致”是提示目标，不是生成模型的能力保证。</p>
+<details><summary>换成人物时，要求怎么改？</summary><p>灰底提示词改为保留人物、头发、衣服、饰品和包，去掉街道与其他人；本例人物尺寸 1145×1374。遮罩要求皮肤、衣物、项链、包和浓密头发主体为白色，仅外围散发、实际孔洞或真实透光材料保留灰度。不能因为衣服有阴影或头发颜色深，就把它们画灰或画黑。</p><p>本次人物第一版遮罩出现项链、衣袖和发块漏底，纠正后采用第二版。<a href="examples/blonde-portrait/README.md">查看人物案例</a>。</p></details></section>
+
+<section id="align"><span class="badge">04 / 验收</span><h2>同尺寸，不等于同位置</h2><p>用<strong>未按遮罩裁边的 solid-raw.png</strong>检查。以下命令在仓库根目录执行，需 Python 3.10+ 与 Pillow；把原图和两张生成原件放进 work 文件夹。</p>
+<pre>python3 -m pip install -r requirements.txt
+python3 skills/gpt-image-2-subject-assets/scripts/process_assets.py source-info --source-image work/source.png
+python3 skills/gpt-image-2-subject-assets/scripts/process_assets.py normalize-mask --source-image work/source.png --mask-image work/alpha-raw.png --mask-out work/alpha.png --black-threshold 8 --white-threshold 255
+python3 skills/gpt-image-2-subject-assets/scripts/process_assets.py alignment-overlay --source-image work/source.png --solid-image work/solid-raw.png --mask-image work/alpha.png --overlay-out work/alignment-overlay.png</pre>
+<p class="hint">先确认原件构图一致。归一化脚本可能缩放遮罩到源图尺寸，但不能修复局部变形。8/255 是本次纱物的设置，可能损失弱细丝，不是通用最佳值。</p>
+<ol><li>看叠加图，或在下方工具导入 raw 灰底与 alpha.png，选择“查看 → 红线轮廓”，勾选“原尺寸”。</li><li>沿四周、尖角、内部孔洞检查；人物还要看发梢、衣袖和包。红线只是阈值边界，不能代替半透明质量检查。</li><li>错位只重做遮罩。同一问题纠正一次仍失败，保留记录并停止标记为完成；不要通过裁边掩盖错位。</li></ol>
+<p>轮廓通过后，才将零 Alpha 区域统一为精确底色：</p>
+<pre>python3 skills/gpt-image-2-subject-assets/scripts/process_assets.py finalize-solid --source-image work/source.png --solid-image work/solid-raw.png --mask-image work/alpha.png --background '#808080' --solid-out work/solid.png
+python3 skills/gpt-image-2-subject-assets/scripts/process_assets.py validate --source-image work/source.png --solid-image work/solid.png --mask-image work/alpha.png --background '#808080'</pre>
+<p class="muted">纯色化不修正纱内部的底色误差，格式检查不能证明真实透明度。不会运行脚本时，可把原件和本仓库 Skill 交给支持本地脚本的代理执行；网页本身不会导出 L 模式遮罩或精确纯色图。演示成品已完成上述处理，无需重复。</p></section>
+
+<section id="tool"><span class="badge">05 / 实际网页工具</span><h2>导入两张配对图，检查再调节</h2>
+<ol><li>“灰底彩色图”选择 <strong>solid.png</strong>；“黑白遮罩图”选择 <strong>alpha.png</strong>，不是 source.png。</li><li>选择“通用 · 保留原遮罩”，背景颜色选“指定纯色（推荐）”，设为 <strong>#808080</strong>，不是原图黑底。</li><li>不勾选“允许缩放遮罩”。尺寸不同时先检查是否拿错配对。</li><li>加载两张后自动生成，也可点击“生成”。本例状态应为“已生成 973×1616，背景 #808080”。</li><li>“查看”选“透明结果”，依次点“黑”“白”“格”。工具的黑底实际为 #111111。</li></ol>
+<table><thead><tr><th>控件</th><th>本例参数</th><th>调整注意</th></tr></thead><tbody>
+<tr><td>黑场裁切</td><td>0.000</td><td>升高会去掉弱透明度，也可能删掉细丝。</td></tr>
+<tr><td>白场压实</td><td>1.000</td><td>降低会把更多浅灰变为不透明。</td></tr>
+<tr><td>灰底反推</td><td>0.90</td><td>减轻混色，过强可能放大遮罩或底色误差。</td></tr>
+<tr><td>灰边清理</td><td>0.00</td><td>可能削弱 Alpha，不能修复位移。</td></tr>
+<tr><td>白纱中和</td><td>0.00</td><td>会改变颜色；金发和彩色材质不应盲目套用。</td></tr>
+<tr><td>全透明像素置黑</td><td>勾选</td><td>清理透明处 RGB，不会给图片加黑底。</td></tr></tbody></table>
+<p>每次只改一个参数，并切换背景对照。两组新增案例都用通用预设，没有套用白纱经验修正。下面是真实工具，可直接选文件、操作并下载；不自动上传图片。嵌入页受限时，<a href="cutout-tool.html" target="_blank" rel="noopener">单独打开工具</a>。</p>
+<iframe src="cutout-tool.html" title="实际 Paired Matte 离线抠图工具" loading="lazy"></iframe></section>
+
+<section id="export"><span class="badge">06 / 导出</span><h2>保存透明 PNG，而不是预览截图</h2><p>点击“下载 PNG”，允许本次下载，保存为 cutout.png。即使正在看红线或遮罩，下载仍是透明结果；预览背景不会写入透明 PNG。</p>
+<div class="pair"><figure><img src="examples/pearl-gauze/preview-black.png" alt="纱物深色背景效果"><figcaption>深色底：检查细丝、轮廓和残余灰边。</figcaption></figure><figure><img src="examples/pearl-gauze/preview-white.png" alt="纱物白背景效果"><figcaption>白底：观察透光变化。白纱低对比不等于文件丢失。</figcaption></figure></div>
+<p><a href="examples/pearl-gauze/cutout.png" download="reference-cutout.png">保存参考透明 PNG</a> · <a href="examples/pearl-gauze/settings.json">查看参数记录</a></p>
+<h3>交付前检查清单</h3>
+<label><input type="checkbox"> 灰底、遮罩、透明图尺寸一致，构图没有改变。</label><br>
+<label><input type="checkbox"> 已在未按遮罩裁边的灰底上检查轮廓。</label><br>
+<label><input type="checkbox"> 环境去除，纱有灰度层次；人物不透明部分不漏底。</label><br>
+<label><input type="checkbox"> 已检查黑、白、棋盘格与实际使用背景。</label><br>
+<label><input type="checkbox"> 已保存原件、成品、参数与失败/重试说明。</label>
+<p class="muted">勾选仅用于跟做，不代表自动检测，刷新后不保留。示例没有真实 Alpha 标注，生成过程可能重绘，不能保证无损恢复。两组 Safari 导出的 Alpha 与遮罩最大差为 2/255，详见案例说明。</p>
+<details><summary>遇到问题，应该回到哪一步？</summary><ul><li>残留木纹或主体变形：回到灰底生成，不靠网页滑杆去掉物体。</li><li>遮罩错位：以同一灰底重做，不裁掉彩色图掩盖问题。</li><li>衣服、身体漏底：纠正遮罩语义，不要把所有灰度无差别压白。</li><li>额度、登录或验证阻止继续：保留原件，正常处理后从未完成阶段继续，不并发或反复请求绕过限制。</li></ul></details>
+<p><a href="review.html">返回五组演示</a> · <a href="docs/workflow.md">完整流程文档</a> · <a href="examples/ASSETS.md">素材许可说明</a></p></section>
+<p id="copyStatus" role="status" aria-live="polite"></p></main>
+<script>
+document.querySelectorAll('[data-copy]').forEach(button=>button.addEventListener('click',async()=>{
+const field=document.getElementById(button.dataset.copy),status=document.getElementById('copyStatus');
+try{await navigator.clipboard.writeText(field.value);button.textContent='已复制';status.textContent='提示词已复制。';}
+catch{field.focus();field.select();button.textContent='已选中，请手动复制';status.textContent='浏览器不允许自动复制，请按复制快捷键。';}
+}));
+</script></body></html>

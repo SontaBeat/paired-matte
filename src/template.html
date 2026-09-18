@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Paired Matte · 半透明抠图</title>
+  <style>/* STYLE */</style>
+</head>
+<body>
+  <div class="app">
+    <aside>
+      <h1>Paired Matte · 半透明抠图</h1>
+      <p class="sub">导入纯色图与配对灰度遮罩，在本地浏览器中还原前景。图片不会由本工具上传。</p>
+      <label for="preset">材质预设</label>
+      <select id="preset"><option value="general">通用 · 保留原遮罩</option><option value="cloth">白纱 · 历史经验参数</option></select>
+      <p class="sub">先检查对齐，再调参数。白纱预设会修改颜色与透明度，不适用于所有材质。</p>
+
+      <div class="section">
+        <p class="section-title">输入</p>
+        <label for="colorInput">灰底彩色图</label>
+        <input id="colorInput" type="file" accept="image/*" />
+
+        <label for="maskInput">黑白遮罩图</label>
+        <input id="maskInput" type="file" accept="image/*" />
+      </div>
+
+      <div class="section">
+        <p class="section-title">透明度</p>
+        <div class="row">
+          <label for="trim">黑场裁切</label>
+          <span class="value" id="trimValue">0.004</span>
+        </div>
+        <input id="trim" type="range" min="0" max="30" value="4" step="1" />
+
+        <div class="row">
+          <label for="opaque">白场压实</label>
+          <span class="value" id="opaqueValue">0.992</span>
+        </div>
+        <input id="opaque" type="range" min="940" max="1000" value="992" step="1" />
+
+        <label class="check">
+        <input id="resizeMask" type="checkbox" />
+          <span>允许缩放遮罩（不能修复局部错位）</span>
+        </label>
+      </div>
+
+      <div class="section">
+        <p class="section-title">边缘</p>
+        <label for="backgroundMode">背景颜色</label>
+        <select id="backgroundMode"><option value="fixed">指定纯色（推荐）</option><option value="border">从边框估计</option></select>
+        <input id="backgroundColor" type="color" value="#808080" aria-label="指定背景颜色" />
+        <div class="row">
+          <label for="unmix">灰底反推</label>
+          <span class="value" id="unmixValue">0.90</span>
+        </div>
+        <input id="unmix" type="range" min="0" max="100" value="90" step="1" />
+
+        <div class="row">
+          <label for="edgeClean">灰边清理</label>
+          <span class="value" id="edgeCleanValue">0.95</span>
+        </div>
+        <input id="edgeClean" type="range" min="0" max="100" value="95" step="1" />
+
+        <div class="row">
+          <label for="cloth">白纱中和</label>
+          <span class="value" id="clothValue">0.72</span>
+        </div>
+        <input id="cloth" type="range" min="0" max="100" value="72" step="1" />
+
+        <label class="check">
+          <input id="blackTransparent" type="checkbox" checked />
+          <span>全透明像素置黑</span>
+        </label>
+      </div>
+
+      <div class="actions">
+        <button id="processBtn" class="primary" disabled>生成</button>
+        <button id="downloadBtn" disabled>下载 PNG</button>
+      </div>
+      <p class="sub">浏览器经验算法；不承诺真实 Alpha 或无损还原。尺寸相同不代表轮廓对齐。</p>
+    </aside>
+
+    <main>
+      <div class="toolbar">
+        <div id="status" class="status">等待图片</div>
+        <label for="previewMode">查看</label>
+        <select id="previewMode"><option value="result">透明结果</option><option value="color">彩色输入</option><option value="mask">灰度遮罩</option><option value="overlay">红线轮廓</option></select>
+        <label class="check"><input id="actualSize" type="checkbox" />原尺寸</label>
+        <div class="view-toggle" aria-label="预览背景">
+          <button type="button" data-view="checker" class="active" title="棋盘格">格</button>
+          <button type="button" data-view="dark" title="深色">黑</button>
+          <button type="button" data-view="light" title="浅色">白</button>
+        </div>
+      </div>
+      <div id="stage" class="stage">
+        <div class="canvas-wrap">
+          <canvas id="canvas" hidden></canvas>
+          <div id="empty" class="empty">选择两张图片后生成透明 PNG。</div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>/* APP */</script>
+</body>
+</html>

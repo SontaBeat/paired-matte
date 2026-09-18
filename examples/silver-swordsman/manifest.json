@@ -1,0 +1,23 @@
+{
+  "id": "silver-swordsman",
+  "size": {
+    "width": 971,
+    "height": 1619
+  },
+  "background": "#808080",
+  "historical_generation_route": "web-solid-builtin-mask",
+  "provenance": "Author-provided historical AI artwork and accepted paired outputs; no ground-truth alpha.",
+  "cutout_provenance": "Re-exported with the draft web tool; see settings.json.",
+  "web_end_to_end_rerun": false,
+  "artwork_license": "Author-created demonstration assets; excluded from code GPL; see ../ASSETS.md.",
+  "sha256": {
+    "source.png": "e65308ed4cd0683255bfd3bf81c953e063094f098d36eca4617801c1625c12f7",
+    "solid.png": "124e29db997e27a7274cda1cba16bf0d2ea38d7d5cb63a299bb62af680e42e03",
+    "alpha.png": "e58b10697d1b76136457673c01492f0088b9aba35ac55f04d6c34cd8eda83941",
+    "cutout.png": "a3e15db58d7ac154050962f7f964c8c712a067655e4d97fe770026db261f66c7",
+    "preview-black.png": "eff7b2e61d02e4fc274afb8affeacadae8411053a851cf1cabec1088c25cb96a",
+    "preview-white.png": "69bd90d8fce76505275b75ecae8c2811a64489257d3162c2cc188883f19f3314",
+    "comparison.jpg": "5f97aaffbc799ebe2b421912a0cee67fbaa84c6817638b4c55e441a51abd19fc",
+    "settings.json": "e8e685cf9e0983deea225e73f2aadb2f6fb92a2f72b4b0a27be3b5186c03f2ea"
+  }
+}

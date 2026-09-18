@@ -1,0 +1,15 @@
+{
+  "name": "paired-matte",
+  "version": "0.1.0-draft",
+  "private": true,
+  "description": "配对纯色图与灰度遮罩的半透明抠图工作流",
+  "license": "GPL-3.0-or-later",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node tests/browser.mjs",
+    "test:walkthrough": "node tests/walkthrough.mjs",
+    "check": "node scripts/check.mjs"
+  },
+  "devDependencies": { "playwright": "1.58.2" },
+  "engines": { "node": ">=20" }
+}

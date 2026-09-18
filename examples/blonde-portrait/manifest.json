@@ -1,0 +1,26 @@
+{
+  "id": "blonde-portrait",
+  "size": {
+    "width": 1145,
+    "height": 1374
+  },
+  "background": "#808080",
+  "historical_generation_route": "web",
+  "provenance": "Author-provided images processed on 2026-09-17; no ground-truth alpha or verified camera provenance.",
+  "cutout_provenance": "Existing Safari export from the local draft web tool, copied without pixel changes; see settings.json.",
+  "web_end_to_end_rerun": true,
+  "artwork_license": "Author-created demonstration assets; excluded from code GPL; see ../ASSETS.md.",
+  "sha256": {
+    "source.png": "35934a9ccd7f84c582563812692f52864e1a7672ca9ac4b6aec5982884b49fb1",
+    "solid.png": "5930dae4e49657ba3a5bf9e85d6ea5aa8ad350544af8eee0acf4b21f02e4ab78",
+    "alpha.png": "6d2e24af29673925143b799dacad6920b6e16543c6d7db8b71443e976790b1b2",
+    "cutout.png": "6eecf00e8b906c91deaaf76a13feae45b500392b37ad788ef9593a6c204fb048",
+    "preview-black.png": "97cb9b1e3d08f64e384d57f179949b291ab7caa802068e6f4c6b9f7c06d4dcd6",
+    "preview-white.png": "e6eb31aded89ae170881630ec97697ee719ed7906354f69ed7c297f4e6a60f81",
+    "comparison.jpg": "6bfea5c70ea151fbfba6920e3823269586d03182b6110c33a15fb6c531f86809",
+    "settings.json": "144d6fc52c038c112755d1150e2764a26796dd9e41422654f85f7acbe883183e"
+  },
+  "generation_route": "ChatGPT website in Safari: source to solid, re-upload solid to generate mask.",
+  "validation": "Raw-solid contour overlay and black/white composites inspected; no obvious global shift. Not a pixel-perfect or true-alpha guarantee.",
+  "export_alpha_max_difference_255": 2
+}

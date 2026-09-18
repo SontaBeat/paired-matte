@@ -1,0 +1,26 @@
+{
+  "id": "pearl-gauze",
+  "size": {
+    "width": 973,
+    "height": 1616
+  },
+  "background": "#808080",
+  "historical_generation_route": "web",
+  "provenance": "Author-provided images processed on 2026-09-17; no ground-truth alpha or verified camera provenance.",
+  "cutout_provenance": "Existing Safari export from the local draft web tool, copied without pixel changes; see settings.json.",
+  "web_end_to_end_rerun": true,
+  "artwork_license": "Author-created demonstration assets; excluded from code GPL; see ../ASSETS.md.",
+  "sha256": {
+    "source.png": "24cb093f58b9adb489ea2aa215d76ea57b93053897a4cb7b7f72af9484b68bdc",
+    "solid.png": "d387fd6545dbf050885e391110777a97803cd54b6e6127344e2a63794ed3baaf",
+    "alpha.png": "4e3e4b72cbb0c34ffac64956871db9c3142287abe6882da7190fd37422cd3dd9",
+    "cutout.png": "b6852b084ebcd8fc0756b324594112bf75ea41ac87a85f53da31fc24ce107497",
+    "preview-black.png": "20bed0efc20eb0809f9317028c1358a2c4543163706bcf24f1a712882e698add",
+    "preview-white.png": "eb562acb0a54a3d08447839520e5ae9ffb353d43a9137a53ea83daf94984dfa9",
+    "comparison.jpg": "e98d6dd1ebddfbc233523c363c8778cb047322cbad2ba2689e9ad4c273dab501",
+    "settings.json": "144d6fc52c038c112755d1150e2764a26796dd9e41422654f85f7acbe883183e"
+  },
+  "generation_route": "ChatGPT website in Safari: source to solid, re-upload solid to generate mask.",
+  "validation": "Raw-solid contour overlay and black/white composites inspected; no obvious global shift. Not a pixel-perfect or true-alpha guarantee.",
+  "export_alpha_max_difference_255": 2
+}

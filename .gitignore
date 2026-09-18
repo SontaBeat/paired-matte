@@ -1,0 +1,16 @@
+.DS_Store
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+.env
+.env.*
+test-results/
+playwright-report/
+work/
+*.zip
+# Local historical backup; current maintained tool and source are included.
+legacy/
+*.log
+*.tmp
+*.bak

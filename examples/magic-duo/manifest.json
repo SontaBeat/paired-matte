@@ -1,0 +1,23 @@
+{
+  "id": "magic-duo",
+  "size": {
+    "width": 1122,
+    "height": 1402
+  },
+  "background": "#808080",
+  "historical_generation_route": "builtin",
+  "provenance": "Author-provided historical AI artwork and accepted paired outputs; no ground-truth alpha.",
+  "cutout_provenance": "Re-exported with the draft web tool; see settings.json.",
+  "web_end_to_end_rerun": false,
+  "artwork_license": "Author-created demonstration assets; excluded from code GPL; see ../ASSETS.md.",
+  "sha256": {
+    "source.png": "ecc8fb4be7be6b233cd8a07eda78664618b859d46aa146930d8be68d408863ae",
+    "solid.png": "40f91662146f0ed9fc6383f54ed3b45e67bcc9964fcacc9568ce70ebdf3fc1f2",
+    "alpha.png": "9afd2c02fb992a7e154d762aa1435459c8ee51fad7946fc5f9d9a21a69e6eb34",
+    "cutout.png": "ddefb1cf4b325088df19ab2017cc713d2b4d070eba93d890ed8ada4071493a3e",
+    "preview-black.png": "36108a8c93b90eaf59009a74e9069efa2ed4332194bd83797a44601f8a0acb71",
+    "preview-white.png": "aa14df3e48760feaf1d8440e2a90154768a044f086f26ea65587ce19f919db87",
+    "comparison.jpg": "57e706c3c0508e23d7401a4edd578fe7290a30c112931bc858cbd1fd04874f9e",
+    "settings.json": "1210b7a46a1a8859770c618d3fae58180547df5f47f89c401e95564305c86b2e"
+  }
+}

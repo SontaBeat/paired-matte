@@ -1,0 +1,12 @@
+import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const read = name => readFile(path.join(root, name), 'utf8');
+const [template, css, js] = await Promise.all(['src/template.html', 'src/style.css', 'src/app.js'].map(read));
+const html = template.replace('/* STYLE */', () => css).replace('/* APP */', () => js);
+await writeFile(path.join(root, 'cutout-tool.html'), html);
+const assets = path.join(root, 'skills/gpt-image-2-subject-assets/assets');
+await mkdir(assets, { recursive: true });
+await writeFile(path.join(assets, 'cutout-tool.html'), html);
+console.log('已构建单文件网页及 Skill 自带网页。');

@@ -1,0 +1,23 @@
+{
+  "id": "veil-warrior",
+  "size": {
+    "width": 1024,
+    "height": 1536
+  },
+  "background": "#808080",
+  "historical_generation_route": "builtin",
+  "provenance": "Author-provided historical AI artwork and accepted paired outputs; no ground-truth alpha.",
+  "cutout_provenance": "Re-exported with the draft web tool; see settings.json.",
+  "web_end_to_end_rerun": false,
+  "artwork_license": "Author-created demonstration assets; excluded from code GPL; see ../ASSETS.md.",
+  "sha256": {
+    "source.png": "7ffdca53d17c28069855e474aece1b10023dcec3c6fe7525881897d1e626bb8e",
+    "solid.png": "6ea25e98c5ea679365d21dbd69253796bff0cc1f04cb4a3b7bf21f8e21b7e3af",
+    "alpha.png": "77164075d14cfc88fff545d96d24cfbf7ccabdd0dadfee8fd2bd707057cd2092",
+    "cutout.png": "a3f5c6705e51cfb66eda6adbe19fc1111ccad04626015c481d55717e5ea5d9d4",
+    "preview-black.png": "f885f7c762feff66d43b1ac869d3d6ff9e9086701cdf7ac89f0433398da8c263",
+    "preview-white.png": "b1938a2504b4a6ce976bd00549b243ea4f8a1ebdaffcc4d640bea5a5329aa9b4",
+    "comparison.jpg": "1e37b1173e147316842552c5e1fe379b0a738bf3272943dbd209a90b31ea5482",
+    "settings.json": "e8e685cf9e0983deea225e73f2aadb2f6fb92a2f72b4b0a27be3b5186c03f2ea"
+  }
+}

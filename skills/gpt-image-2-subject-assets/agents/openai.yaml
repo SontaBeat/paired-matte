@@ -1,0 +1,4 @@
+interface:
+  display_name: "配对遮罩 · 半透明抠图"
+  short_description: "通过 ChatGPT 网页生成配对素材，检查对齐并在本地导出半透明 PNG"
+  default_prompt: "使用 $gpt-image-2-subject-assets 按 ChatGPT 网页版流程，为这张图生成 #808080 纯色图、灰度遮罩和透明 PNG。"
