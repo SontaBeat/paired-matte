@@ -16,6 +16,8 @@ try {
  }
  assert(await page.locator('img').evaluateAll(es=>es.every(e=>e.complete&&e.naturalWidth>0)));
  await page.locator('[data-copy="solidPrompt"]').click();
+ // Clipboard writes settle asynchronously; wait for the copy or fallback UI.
+ await page.locator('[data-copy="solidPrompt"]').filter({hasText:/已复制|已选中/}).waitFor();
  assert.match(await page.locator('[data-copy="solidPrompt"]').textContent(),/已复制|已选中/);
  await mkdir(path.join(root,'test-results'),{recursive:true});
  await page.screenshot({path:path.join(root,'test-results','walkthrough-desktop.png')});
